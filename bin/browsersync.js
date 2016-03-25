@@ -20,18 +20,17 @@ pointHost = `http://${host}:${port}`;
 browserSync.init({
     server: {
         baseDir: ['app', './'],
-        //middleware: [
-           // webpackDevMiddleware(bundler, {
+        middleware: [
+            webpackDevMiddleware(bundler, {
                 // IMPORTANT: dev middleware can't access config, so we should
                 // provide publicPath by ourselves
-          //      publicPath: webpackConfig.output.publicPath,
-         //       hot: true,
-         //       stats: {colors: true}
-         //   }),
-        //    webpackHotMiddleware(bundler),
-        //    proxyMiddleware('/api', {target: pointHost})
-        //]
-
+                publicPath: webpackConfig.output.publicPath,
+                hot: true,
+                stats: {colors: true}
+            }),
+            webpackHotMiddleware(bundler)
+            //    proxyMiddleware('/api', {target: pointHost})
+        ]
     },
     port: yargs.argv.port || 9000,
     ghostMode: false

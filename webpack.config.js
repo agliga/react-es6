@@ -35,7 +35,7 @@ module.exports = {
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client',
         'font-awesome-loader!./app/styles/font-awesome.config.js',
-        __dirname + '/app/scripts/main.ts'
+        __dirname + '/app/scripts/main.js'
     ],
     output: {
         path: path.resolve(__dirname, outPath),
@@ -50,10 +50,10 @@ module.exports = {
     plugins: plugins,
     resolve: {
         root: path.resolve(__dirname, 'app'),
-        extensions: ['', '.js', '.jsx'],
-        alias: {
-            jqueryui: 'jquery-ui'
-        }
+        extensions: ['', '.js', '.jsx']
+        //alias: {
+        //    jqueryui: 'jquery-ui'
+        //}
     },
     module: {
         //preLoaders: [
@@ -82,9 +82,12 @@ module.exports = {
                 //loaders: ["style", "css", "sass"]
             },
             {
-                test: /\.js(x?)$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loaders: 'babel-loader'
+                loader: 'babel',
+                query: {
+                    presets: ['es2015', 'react']
+                }
             }
         ]
     },

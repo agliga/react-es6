@@ -1,0 +1,36 @@
+{
+  "name": "react-es6",
+  "version": "1.0.0",
+  "description": "React es6 widgets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agliga/react-es6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/agliga/react-es6/issues"
+  },
+  "homepage": "https://github.com/agliga/react-es6#readme",
+  "dependencies": {
+    "babel": "^6.5.2",
+    "bootstrap-sass": "^3.3.6",
+    "css-loader": "^0.23.1",
+    "lodash": "^4.6.1",
+    "react": "^0.14.7",
+    "react-bootstrap": "^0.28.4",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.12.14",
+    "whatwg-fetch": "^0.11.0"
+  },
+  "scripts": {
+      "start": "node bin/browsersync.js",
+      "build": "npm install && node bin/webpack-run.js",
+      "clean": "node bin/clean.js"
+  }
+}

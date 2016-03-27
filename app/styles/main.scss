@@ -9,18 +9,18 @@
 //@import angular-loading-bar/build/loading-bar.css
 
 // Import compass
-@import animate
-@import compass
-@import compass/css3
+@import 'animate';
+@import 'compass';
+@import 'compass/css3';
 
 //Import Bootstrap Compass integration
 //  @import bootstrap-sass
-@import bootstrap-compass
+@import 'bootstrap-compass';
 
 // Import custom bootstrap variables
-@import vendor/bootstrap-variables
+@import 'vendor/bootstrap-variables';
 
-@import bootstrap
+@import 'bootstrap';
 // Import Bootstrap for Sass
 //@import bootstrap
 

@@ -23,7 +23,7 @@ if (isProduction === "true") {
     outPath = 'dist/assets';
 } else {
     console.log('Adding Development values');
-    outPath = 'app/out'
+    outPath = 'dist/assets'
 }
 
 plugins.push(new ExtractTextPlugin('main.css', {
@@ -34,7 +34,7 @@ module.exports = {
     entry: [
         'webpack/hot/dev-server',
         'webpack-hot-middleware/client',
-        'font-awesome-loader!./app/styles/font-awesome.config.js',
+        //'font-awesome-loader!./app/styles/font-awesome.config.js',
         __dirname + '/app/scripts/main.js'
     ],
     output: {
@@ -42,9 +42,9 @@ module.exports = {
         publicPath: '/assets/',
         filename: 'main.js'
     },
-    externals: {
-        'React': 'react'
-    },
+    //externals: {
+    //    'React': 'react'
+    //},
     devtool: '#eval',
     debug: !isProduction,
     plugins: plugins,
@@ -57,6 +57,7 @@ module.exports = {
     },
     module: {
         //preLoaders: [
+
         //    {
          //       test: /\.ts(x?)$/,
          //       loader: "tslint"
@@ -76,17 +77,19 @@ module.exports = {
                 loader: 'file'
             },
             {
-                test: /\.sass$/,
+                test: /\.scss$/,
                 exclude: /(node_modules)/,
                 loader: ExtractTextPlugin.extract('css!sass')
                 //loaders: ["style", "css", "sass"]
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules)/,
+                exclude: /(node_modules|styles)/,
+                //loaders: ['jsx?harmony&stripTypes', 'flow']
                 loader: 'babel',
                 query: {
-                    presets: ['es2015', 'react']
+                    presets: ['es2015', 'react'],
+                    plugins: ['syntax-flow', 'transform-flow-strip-types']
                 }
             }
         ]

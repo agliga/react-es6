@@ -6,16 +6,15 @@ var BrowserSync = require('browser-sync'),
     webpack = require('webpack'),
     yargs = require('yargs'),
     proxyMiddleware = require('http-proxy-middleware'),
-
     browserSync = BrowserSync.create(),
     webpackConfig = require('../webpack.config'),
     bundler = webpack(webpackConfig),
-    MCS_HOST,
     port,
-    host;
+    host,
+    pointHost;
 
 host = yargs.argv.host || 'localhost';
-port = yargs.argv.port || '8443'
+port = yargs.argv.port || '8443';
 pointHost = `http://${host}:${port}`;
 browserSync.init({
     server: {
@@ -28,8 +27,8 @@ browserSync.init({
                 hot: true,
                 stats: {colors: true}
             }),
-            webpackHotMiddleware(bundler)
-            //    proxyMiddleware('/api', {target: pointHost})
+            webpackHotMiddleware(bundler),
+            proxyMiddleware('/api', {target: pointHost})
         ]
     },
     port: yargs.argv.port || 9000,

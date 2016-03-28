@@ -4,9 +4,7 @@
   "description": "React es6 widgets",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/browsersync.js",
-    "build": "npm install && node bin/webpack-run.js",
-    "clean": "node bin/clean.js"
+    "start": "node bin/browsersync.js"
   },
   "repository": {
     "type": "git",
@@ -48,7 +46,11 @@
     "whatwg-fetch": "^0.11.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.11.2",
+    "http-proxy-middleware": "^0.13.0",
     "webpack-dev-middleware": "^1.6.0",
-    "webpack-hot-middleware": "^2.10.0"
+    "webpack-dev-server": "^1.14.1",
+    "webpack-hot-middleware": "^2.10.0",
+    "yargs": "^4.3.2"
   }
 }

@@ -3,17 +3,17 @@ var webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     isProduction = process.env.PRODUCTION,
     plugins = [
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
-        new webpack.ProvidePlugin({
-            '_': 'lodash',
-            $: 'jquery',
-            jQuery: 'jquery',
-            React: 'react',
-            'window.jQuery': 'jquery'
-        })
+        //new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.OccurenceOrderPlugin()
+        //new webpack.HotModuleReplacementPlugin(),
+        //new webpack.NoErrorsPlugin(),
+        //new webpack.ProvidePlugin({
+        //    '_': 'lodash',
+        //    $: 'jquery',
+        //    jQuery: 'jquery',
+        //    React: 'react',
+        //    'window.jQuery': 'jquery'
+        //})
     ],
     outPath;
 
@@ -32,8 +32,8 @@ plugins.push(new ExtractTextPlugin('main.css', {
 
 module.exports = {
     entry: [
-        'webpack/hot/dev-server',
-        'webpack-hot-middleware/client',
+        //'webpack/hot/dev-server',
+        //'webpack-hot-middleware/client',
         //'font-awesome-loader!./app/styles/font-awesome.config.js',
         __dirname + '/app/scripts/main.js'
     ],
@@ -84,7 +84,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|styles)/,
+                exclude: /(node_modules|styles|server)/,
                 //loaders: ['jsx?harmony&stripTypes', 'flow']
                 loader: 'babel',
                 query: {

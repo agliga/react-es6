@@ -18,6 +18,7 @@
   "homepage": "https://github.com/agliga/react-es6#readme",
   "dependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.6.5",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-syntax-flow": "^6.5.0",

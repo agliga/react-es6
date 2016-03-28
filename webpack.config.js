@@ -80,17 +80,11 @@ module.exports = {
                 test: /\.scss$/,
                 exclude: /(node_modules)/,
                 loader: ExtractTextPlugin.extract('css!sass')
-                //loaders: ["style", "css", "sass"]
             },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|styles|server)/,
-                //loaders: ['jsx?harmony&stripTypes', 'flow']
-                loader: 'babel',
-                query: {
-                    presets: ['es2015', 'react'],
-                    plugins: ['syntax-flow', 'transform-flow-strip-types']
-                }
+                loader: 'babel'
             }
         ]
     },

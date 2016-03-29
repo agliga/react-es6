@@ -1,5 +1,6 @@
 import 'jquery';
+import 'react';
 import '../styles/main.scss';
 
-console.log('Hello!');
+import './router';
 

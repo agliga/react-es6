@@ -56,13 +56,15 @@ module.exports = {
         //}
     },
     module: {
-        //preLoaders: [
+        preLoaders: [
+        //
+            {
+                test: /\.jsx?$/,
+                loader: "eslint-loader",
+                exclude: /node_modules/
+            }
 
-        //    {
-         //       test: /\.ts(x?)$/,
-         //       loader: "tslint"
-         //   }
-        //],
+        ],
         loaders: [
             // the url-loader uses DataUrls.
             // the file-loader emits files.
